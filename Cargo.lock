@@ -6,9 +6,9 @@ version = 4
 name = "crispii_bits"
 version = "0.1.0"
 dependencies = [
- "crispii_errors",
+ "crispii_digits",
 ]
 
 [[package]]
-name = "crispii_errors"
-version = "0.1.1"
+name = "crispii_digits"
+version = "0.2.0"

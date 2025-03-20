@@ -11,4 +11,4 @@ license = "MIT OR Apache-2.0"
 keywords = ["crispii", "bits"]
 
 [dependencies]
-crispii_errors = { path = "../crispii_errors", version = "0.1.1" }
+crispii_digits = { path = "../crispii_digits", version = "0.2.0" }
