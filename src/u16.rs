@@ -5,3 +5,4 @@ pub use crate::Bin;
 // traits
 pub use crate::SetU16;
 pub use crate::FlipU16;
+pub use crate::AddWithCarryU16;

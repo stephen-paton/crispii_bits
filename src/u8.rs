@@ -5,3 +5,4 @@ pub use crate::Bin;
 // traits
 pub use crate::SetU8;
 pub use crate::FlipU8;
+pub use crate::AddWithCarryU8;

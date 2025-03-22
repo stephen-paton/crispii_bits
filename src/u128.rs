@@ -5,3 +5,4 @@ pub use crate::Bin;
 // traits
 pub use crate::SetU128;
 pub use crate::FlipU128;
+pub use crate::AddWithCarryU128;
