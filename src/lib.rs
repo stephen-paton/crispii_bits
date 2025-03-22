@@ -22,6 +22,13 @@ pub use flip::FlipU32;
 pub use flip::FlipU64;
 pub use flip::FlipU128;
 
+pub mod add_with_carry;
+pub use add_with_carry::AddWithCarryU8;
+pub use add_with_carry::AddWithCarryU16;
+pub use add_with_carry::AddWithCarryU32;
+pub use add_with_carry::AddWithCarryU64;
+pub use add_with_carry::AddWithCarryU128;
+
 pub mod u8;
 pub mod u16;
 pub mod u32;
