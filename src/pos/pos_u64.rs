@@ -1,4 +1,8 @@
+use std::fmt::Display;
+
+#[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd, Hash, Debug, Default)]
 pub enum PosU64 {
+    #[default]
     B0,
     B1,
     B2,
@@ -63,6 +67,14 @@ pub enum PosU64 {
     B61,
     B62,
     B63,
+}
+
+impl Display for PosU64 {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        let as_u8 = u8::from(*self);
+
+        write!(f, "u64:Bit {as_u8}")
+    }
 }
 
 impl From<PosU64> for u8 {
@@ -132,6 +144,80 @@ impl From<PosU64> for u8 {
             PosU64::B61 => 61,
             PosU64::B62 => 62,
             PosU64::B63 => 63,
+        }
+    }
+}
+
+impl TryFrom<u8> for PosU64 {
+    type Error = &'static str;
+
+    fn try_from(value: u8) -> Result<Self, Self::Error> {
+        match value {
+            0 => Ok(PosU64::B0),
+            1 => Ok(PosU64::B1),
+            2 => Ok(PosU64::B2),
+            3 => Ok(PosU64::B3),
+            4 => Ok(PosU64::B4),
+            5 => Ok(PosU64::B5),
+            6 => Ok(PosU64::B6),
+            7 => Ok(PosU64::B7),
+            8 => Ok(PosU64::B8),
+            9 => Ok(PosU64::B9),
+            10 => Ok(PosU64::B10),
+            11 => Ok(PosU64::B11),
+            12 => Ok(PosU64::B12),
+            13 => Ok(PosU64::B13),
+            14 => Ok(PosU64::B14),
+            15 => Ok(PosU64::B15),
+            16 => Ok(PosU64::B16),
+            17 => Ok(PosU64::B17),
+            18 => Ok(PosU64::B18),
+            19 => Ok(PosU64::B19),
+            20 => Ok(PosU64::B20),
+            21 => Ok(PosU64::B21),
+            22 => Ok(PosU64::B22),
+            23 => Ok(PosU64::B23),
+            24 => Ok(PosU64::B24),
+            25 => Ok(PosU64::B25),
+            26 => Ok(PosU64::B26),
+            27 => Ok(PosU64::B27),
+            28 => Ok(PosU64::B28),
+            29 => Ok(PosU64::B29),
+            30 => Ok(PosU64::B30),
+            31 => Ok(PosU64::B31),
+            32 => Ok(PosU64::B32),
+            33 => Ok(PosU64::B33),
+            34 => Ok(PosU64::B34),
+            35 => Ok(PosU64::B35),
+            36 => Ok(PosU64::B36),
+            37 => Ok(PosU64::B37),
+            38 => Ok(PosU64::B38),
+            39 => Ok(PosU64::B39),
+            40 => Ok(PosU64::B40),
+            41 => Ok(PosU64::B41),
+            42 => Ok(PosU64::B42),
+            43 => Ok(PosU64::B43),
+            44 => Ok(PosU64::B44),
+            45 => Ok(PosU64::B45),
+            46 => Ok(PosU64::B46),
+            47 => Ok(PosU64::B47),
+            48 => Ok(PosU64::B48),
+            49 => Ok(PosU64::B49),
+            50 => Ok(PosU64::B50),
+            51 => Ok(PosU64::B51),
+            52 => Ok(PosU64::B52),
+            53 => Ok(PosU64::B53),
+            54 => Ok(PosU64::B54),
+            55 => Ok(PosU64::B55),
+            56 => Ok(PosU64::B56),
+            57 => Ok(PosU64::B57),
+            58 => Ok(PosU64::B58),
+            59 => Ok(PosU64::B59),
+            60 => Ok(PosU64::B60),
+            61 => Ok(PosU64::B61),
+            62 => Ok(PosU64::B62),
+            63 => Ok(PosU64::B63),
+            _ => Err("PosU64 can only be represented by the u8 values 0 to 63 (inclusive)!")
         }
     }
 }
