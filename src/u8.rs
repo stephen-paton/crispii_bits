@@ -1,8 +1,8 @@
 // argument types
-pub use crate::PosU8;
-pub use crate::Bin;
+pub use crate::enums::Bin;
+pub use crate::enums::PosU8;
 
 // traits
-pub use crate::SetU8;
-pub use crate::FlipU8;
-pub use crate::AddWithCarryU8;
+pub use crate::traits::AddWithCarry;
+pub use crate::traits::Flip;
+pub use crate::traits::Set;

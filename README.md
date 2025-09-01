@@ -1,28 +1,38 @@
 # crispii_bits
 
-Bit related functionality intended for use with Crispii
+## Overview
+Bit operations made **safe**.
 
-Provides extension methods to Rust's native unsigned int types for bit-level manipulations.
+Useful for situations where you're emulating CPU registers or need to carry out bit-level operations on Rust's native unsigned integer types (usize excluded).
 
-The recommended approach for imports is to use the associated helper crate for the particular int variant you're using.
+Provides three extension methods for each:
+- <code>add_with_carry</code> -> Returns a tuple containing the resulting <code>u{int}</code> value, and a <code>Vec</code> of all of the bit positions where carries occurred (the bit that overflowed to the next bit on the left, not the destination bit of the overlow)
+- <code>set_bit</code> -> Sets the bit on (1) or off (0) at the position specified
+- <code>flip_bit</code> -> Flips the bit (0 -> 1 || 1 -> 0) at the position specified
 
-For example, if you're using u8 values:
+Each of these methods uses a respective <code>PosU{int}</code> enum for bit selection, guaranteeing safety, though the <code>try_into</code> method is available on the <code>u8</code> type if desired.
+
+The former approach is less cumbersome in practice:
 ```rust
 use crispii_bits::u8::*;
 
-fn main() {
-    let mut register_a: u8 = 0b0000_0000;
+let result: u8 = 0b0100_0000.flip_bit(PosU8::B6);
+```
 
-    register_a = register_a.flip_bit(PosU8::B2); // 0b0000_0100
+vs.
 
-    register_a = register_a.set_bit(PosU8::B7, Bin::B1); // 0b1000_0100
+```rust
+use crispii_bits::u8::*;
 
-    let (result, carried_bits) = register_a.add_with_carry(0b0000_0100);
+let result: u8 = 0b0100_0000.flip_bit(6.try_into().unwrap());
+```
 
-    if carried_bits.contains(&PosU8::B2) {
-        println!("Addition operation resulted in a carry on bit 2");
-    }
-}
+## Importing
+Importing the crate is as simple as importing <code>*</code> from the <code>u{int}</code> module that matches the native <code>u{int}</code> type you want to use.
+
+For example, a <code>u16</code>:
+```rust
+use crispii_bits::u16::*;
 ```
 
 License: MIT OR Apache-2.0

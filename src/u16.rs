@@ -1,8 +1,8 @@
 // argument types
-pub use crate::PosU16;
-pub use crate::Bin;
+pub use crate::enums::Bin;
+pub use crate::enums::PosU16;
 
 // traits
-pub use crate::SetU16;
-pub use crate::FlipU16;
-pub use crate::AddWithCarryU16;
+pub use crate::traits::AddWithCarry;
+pub use crate::traits::Flip;
+pub use crate::traits::Set;

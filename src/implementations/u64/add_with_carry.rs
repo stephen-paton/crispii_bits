@@ -1,11 +1,12 @@
-use crate::PosU64;
+use crate::{
+    enums::PosU64,
+    traits::AddWithCarry,
+};
 
-pub trait AddWithCarryU64 { 
-    fn add_with_carry(self, other: u64) -> (u64, Vec<PosU64>);
-}
+impl AddWithCarry for u64 {
+    type Pos = PosU64;
 
-impl AddWithCarryU64 for u64 {
-    fn add_with_carry(self, other: u64) -> (u64, Vec<PosU64>) {
+    fn add_with_carry(self, other: Self) -> (Self, Vec<PosU64>) {
         let mut result: u64 = 0;
         let mut carry_bit: u8 = 0;
         

@@ -1,10 +1,11 @@
-use crate::PosU32;
+use crate::{
+    enums::PosU32,
+    traits::Flip,
+};
 
-pub trait FlipU32 { 
-    fn flip_bit(self, pos_u32: PosU32) -> Self;
-}
+impl Flip for u32 {
+    type Pos = PosU32;
 
-impl FlipU32 for u32 {
     fn flip_bit(self, pos_u32: PosU32) -> Self {
         self ^ (1 << u8::from(pos_u32))
     }
@@ -16,14 +17,14 @@ mod tests {
 
     #[test]
     fn bit_30_flip_on() {
-        let result = 0b0000_0000_0000_0000_0000_0000_0000_0000.flip_bit(PosU32::B30);
+        let result: u32 = 0b0000_0000_0000_0000_0000_0000_0000_0000.flip_bit(PosU32::B30);
 
         assert_eq!(result, 0b0100_0000_0000_0000_0000_0000_0000_0000);
     }
 
     #[test]
     fn bit_31_flip_off() {
-        let result = 0b1111_1111_1111_1111_1111_1111_1111_1111.flip_bit(PosU32::B31);
+        let result: u32= 0b1111_1111_1111_1111_1111_1111_1111_1111.flip_bit(PosU32::B31);
 
         assert_eq!(result, 0b0111_1111_1111_1111_1111_1111_1111_1111);
     }

@@ -1,6 +1,6 @@
 [package]
 name = "crispii_bits"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2024"
 rust-version = "1.85.0"
 description = "Bit related functionality intended for use with Crispii"

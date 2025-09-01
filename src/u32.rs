@@ -1,8 +1,8 @@
 // argument types
-pub use crate::PosU32;
-pub use crate::Bin;
+pub use crate::enums::Bin;
+pub use crate::enums::PosU32;
 
 // traits
-pub use crate::SetU32;
-pub use crate::FlipU32;
-pub use crate::AddWithCarryU32;
+pub use crate::traits::AddWithCarry;
+pub use crate::traits::Flip;
+pub use crate::traits::Set;

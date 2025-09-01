@@ -1,10 +1,14 @@
-use crate::{PosU32, Bin};
+use crate::{
+    enums::{
+        Bin,
+        PosU32,
+    },
+    traits::Set,
+};
 
-pub trait SetU32 { 
-    fn set_bit(self, pos_u32: PosU32, bin: Bin) -> Self;
-}
+impl Set for u32 {
+    type Pos = PosU32;
 
-impl SetU32 for u32 {
     fn set_bit(self, pos_u32: PosU32, bin: Bin) -> Self {
         if bin == Bin::B1 {
             self | (1 << u8::from(pos_u32))
@@ -20,14 +24,14 @@ mod tests {
 
     #[test]
     fn bit_30_on() {
-        let result = 0b0000_0000_0000_0000_0000_0000_0000_0000.set_bit(PosU32::B30, Bin::B1);
+        let result: u32 = 0b0000_0000_0000_0000_0000_0000_0000_0000.set_bit(PosU32::B30, Bin::B1);
 
         assert_eq!(result, 0b0100_0000_0000_0000_0000_0000_0000_0000);
     }
 
     #[test]
     fn bit_31_off() {
-        let result = 0b1111_1111_1111_1111_1111_1111_1111_1111.set_bit(PosU32::B31, Bin::B0);
+        let result: u32 = 0b1111_1111_1111_1111_1111_1111_1111_1111.set_bit(PosU32::B31, Bin::B0);
 
         assert_eq!(result, 0b0111_1111_1111_1111_1111_1111_1111_1111);
     }

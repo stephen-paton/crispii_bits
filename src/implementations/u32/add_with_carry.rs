@@ -1,11 +1,12 @@
-use crate::PosU32;
+use crate::{
+    enums::PosU32,
+    traits::AddWithCarry,
+};
 
-pub trait AddWithCarryU32 { 
-    fn add_with_carry(self, other: u32) -> (u32, Vec<PosU32>);
-}
+impl AddWithCarry for u32 {
+    type Pos = PosU32;
 
-impl AddWithCarryU32 for u32 {
-    fn add_with_carry(self, other: u32) -> (u32, Vec<PosU32>) {
+    fn add_with_carry(self, other: Self) -> (Self, Vec<PosU32>) {
         let mut result: u32 = 0;
         let mut carry_bit: u8 = 0;
         
