@@ -34,7 +34,6 @@
 //! ``` 
 mod enums;
 mod implementations;
-mod structs;
 mod traits;
 
 pub mod u8;

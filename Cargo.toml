@@ -1,9 +1,9 @@
 [package]
 name = "crispii_bits"
-version = "1.0.0"
+version = "1.0.1"
 edition = "2024"
 rust-version = "1.85.0"
-description = "Bit related functionality intended for use with Crispii"
+description = "Bit-related functionality for Rust's native u{int} types (usize excluded)"
 readme = "README.md"
 repository = "https://github.com/stephen-paton/crispii_bits"
 authors = ["Stephen Paton <69050696+stephen-paton@users.noreply.github.com>"]
@@ -11,4 +11,4 @@ license = "MIT OR Apache-2.0"
 keywords = ["crispii", "bits"]
 
 [dependencies]
-crispii_digits = { path = "../crispii_digits", version = "0.2.1" }
+crispii_digits = "0.2.1"

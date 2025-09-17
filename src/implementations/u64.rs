@@ -2,8 +2,8 @@ use crate::traits::UnsignedInteger;
 
 impl UnsignedInteger for u64 {}
 
-pub mod add_with_carry;
+mod add_with_carry;
 
-pub mod flip;
+mod flip;
 
-pub mod set;
+mod set;
